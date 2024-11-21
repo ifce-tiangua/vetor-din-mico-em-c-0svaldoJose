@@ -1,19 +1,18 @@
-#include <stdio.h>
+#include<stdio.h>
+#include<stdlib.h>
 
-int main(){
-
-    int n;
-    scanf("%d",&n);
-
-    int v[n];
-    for(int i = 0; i < n; i++) {
-        scanf("%d",&v[i]);
+int main() {
+    int *v, tamanho, i;
+    scanf("%d", &tamanho);
+    v = (int*)malloc(tamanho*sizeof(int));
+    if(v == NULL) {
+        printf("[VAZIO]");
+    } else {
+        for(i = 0; i < tamanho; i++) {
+            scanf("%d", &v[i]);
+        }
+        for(i = 0; i < tamanho; i++)
+            printf("%d\t", v[i]);
     }
-
-    for(int i = 0; i < n; i++) {
-            printf("%d,", v[i]);
-    }
-
-
-    return 0;
+    free(v);
 }
